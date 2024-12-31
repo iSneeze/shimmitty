@@ -1,0 +1,24 @@
+version: "3"
+services:
+  caddy:
+    image: caddy:latest
+    volumes:
+      - ./caddy/data:/data
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - caddy
+
+  shimmie:
+    image: shish2k/shimmie2:latest
+    volumes:
+      - ./data:/app/data
+      - ./themes/mitty:/app/themes/Mitty
+      - ./themes/mitty/counters:/app/ext/home/counters/LuckyCharms
+    networks:
+      - caddy
+
+networks:
+  caddy:

@@ -1,0 +1,11 @@
+# no caddy data
+caddy/data/*
+
+# no operational files, sqllite db, etc.
+data/*
+
+# keep the config files though!
+!data/config
+
+# but this one which contains db credentials
+data/config/shimmie.conf.php

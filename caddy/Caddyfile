@@ -1,0 +1,7 @@
+# Insert your domain here!
+your.domain.here {
+    log {
+        output file /data/log/access.log
+    }
+    reverse_proxy shimmie:8000
+}

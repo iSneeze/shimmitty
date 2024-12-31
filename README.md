@@ -13,7 +13,7 @@ The goal of this repo is to make it as easy as possible to setup.
 
 - [x] Did an overview of the possible installations and chose a booru (Shimmie)
 - [x] Configured the Booru to include moderation tools and sane defaults
-- [-] Add a custom theme for Mitty's color scheme (might need refinement for now)
+- [ ] Add a custom theme for Mitty's color scheme (might need refinement for now)
 - [ ] Add custom counters and maybe a logo for the site
 - [x] Put the booru behind a webserver (Caddy) so its reachable from a domain
 - [ ] Add Redis for caching, increasing performance

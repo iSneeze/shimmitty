@@ -19,7 +19,7 @@ Make sure you have [git](https://git-scm.com/) and a relatively up-to-date versi
 ### Setup
 To clone this repository, execute `git clone https://github.com/iSneeze/shimmitty` in your terminal of choice
 
-First you probably want to edit the `caddy/Caddyfile`, change the domain to match yours.
+First you probably want to edit the `caddy/Caddyfile`, change the domain to match yours, no "http://", just the domain name. E.g. `example.com` or if using a subdomain e.g. `megaawesomebooru.mittydot.com`
 
 After that, change into the newly downloaded folder by using `cd shimmitty` and execute `docker-compose up` from your terminal of choice to start shimmie with caddy. in this mode you will get logs in the terminal and see if something is failing. (to exit, press Ctrl + C)
 
@@ -27,7 +27,7 @@ By exiting the Stack will still be running so if you want to shut it down, use `
 
 You can start it without attaching yourself to the process by using `docker-compose up -d`
 
-if you dont own a domain, feel free to edit the docker-compose file to include a port mapping, like this:
+if you dont own a domain, feel free to edit the `compose.yaml` file to include a port mapping, like this:
 
 ```yaml
 ...

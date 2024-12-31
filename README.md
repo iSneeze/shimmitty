@@ -9,6 +9,18 @@ this includes the needed configurations and themes to start a customized shimmie
 
 The goal of this repo is to make it as easy as possible to setup.
 
+## Overall project status 
+
+- [x] Did an overview of the possible installations and chose a booru (Shimmie)
+- [x] Configured the Booru to include moderation tools and sane defaults
+- [-] Add a custom theme for Mitty's color scheme (might need refinement for now)
+- [ ] Add custom counters and maybe a logo for the site
+- [x] Put the booru behind a webserver (Caddy) so its reachable from a domain
+- [ ] Add Redis for caching, increasing performance
+- [x] Choose a server host to deploy the booru to
+- [ ] Test the finished config on the server host
+- [ ] Write a set of instructions for Mitty to be able set up the booru by herself (Needs a domain, a server host, and once you have access to the server, the required steps to perform so it's running the booru)
+
 ## Getting Started
 
 ### Prerequisites

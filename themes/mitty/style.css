@@ -229,7 +229,7 @@ ARTICLE TABLE {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* Links moved below title */
-@media screen and (width < 1190px/*1215px/*75.9375rem*/) {
+@media screen and (width <= 1490px/*1215px/*75.9375rem*/) {
 	HEADER > DIV:first-of-type {
 		flex-direction: column;
 		flex-wrap: nowrap;
@@ -241,7 +241,7 @@ ARTICLE TABLE {
 }
 
 /* Blocks jump above the title and links */
-@media screen and (width <= 875px) {
+@media screen and (width <= 1130px) {
 	HEADER {
 		flex-direction: column-reverse;
 		flex-wrap: nowrap;

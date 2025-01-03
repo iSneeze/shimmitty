@@ -48,7 +48,7 @@ class MittyHomeTheme extends HomeTheme
             $page->body_attrs(),
             rawHTML("
                 <div id='front-page'>
-                        <h1><a style='text-decoration: none;' href='".make_link()."'><img src='/themes/mitty/mittyLogo.png' alt='$sitename' height='200'/></a></h1>
+                        <h1><a style='text-decoration: none;' href='".make_link()."'><img src='/themes/Mitty/mittyLogo.png' alt='$sitename' height='200'/></a></h1>
                         $main_links_html
                         $search_html
                         $message_html

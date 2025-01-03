@@ -57,9 +57,9 @@ class MittyPage extends Page
                             "src" => "/themes/Mitty/mittyLogo.png",
                             "alt" => "$site_name",
                             "height" => "200"
-                        ])
-                    )
+                        ]))
                     // Navigation links go here
+                    ),
                 ),
                 ...$head_block_html,
                 ...$sub_block_html

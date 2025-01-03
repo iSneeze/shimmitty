@@ -60,9 +60,9 @@ shimmie:
 ...
 ```
 
-To configure Shimmie to use the included Redis cache, edit data/config/shimmie.conf.php and include the following line at the end:
+To configure Shimmie to use the included Memcached cache, edit data/config/shimmie.conf.php and include the following line at the end:
 ```php
-define('CACHE_DSN', 'redis://redis:6379');
+define('CACHE_DSN', 'memcache://memcached:11211');
 ```
 
 Happy testing!

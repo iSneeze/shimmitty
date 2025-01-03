@@ -21,8 +21,12 @@ services:
     networks:
       - caddy
 
-  redis:
-    image: redis:alpine
+  memcached:
+    image: memcached:alpine
+    command:
+      - --conn-limit=1024
+      - --memory-limit=64
+      - --threads=4
     networks:
       - caddy
 

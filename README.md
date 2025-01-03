@@ -16,7 +16,7 @@ The goal of this repo is to make it as easy as possible to setup.
 - [ ] Add a custom theme for Mitty's color scheme (might need refinement for now)
 - [ ] Add custom counters and maybe a logo for the site
 - [x] Put the booru behind a webserver (Caddy) so its reachable from a domain
-- [ ] Add Redis for caching, increasing performance
+- [x] Add Redis for caching, increasing performance
 - [x] Choose a server host to deploy the booru to
 - [ ] Test the finished config on the server host
 - [ ] Write a set of instructions for Mitty to be able set up the booru by herself (Needs a domain, a server host, and once you have access to the server, the required steps to perform so it's running the booru)
@@ -62,7 +62,19 @@ shimmie:
 
 To configure Shimmie to use the included Redis cache, edit data/config/shimmie.conf.php and include the following line at the end:
 ```php
-define('CACHE_DSN', 'redis://redis:63790');
+define('CACHE_DSN', 'redis://redis:6379');
 ```
 
 Happy testing!
+
+
+## Special Thanks to the contributors and Luckycharms that helped with testing and ideas!
+
+- Neon
+- Xiazee
+- WCTB
+- ArchiveAnon
+- Matze
+- MiiMoo
+
+👏👏👏👏👏

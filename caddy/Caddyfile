@@ -1,5 +1,5 @@
 # Insert your domain here!
-{$SHIMMITY_DOMAIN} {
+{$SHIMMITTY_DOMAIN} {
     log {
         output file /data/log/access.log
     }

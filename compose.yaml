@@ -17,7 +17,7 @@ services:
     volumes:
       - ./data:/app/data
       - ./themes/mitty:/app/themes/Mitty
-      - ./themes/mitty/counters:/app/ext/home/counters/LuckyCharms
+      - ./counters:/app/ext/home/counters/LuckyCharms
     networks:
       - caddy
 

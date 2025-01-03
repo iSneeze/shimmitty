@@ -10,6 +10,8 @@ new UserClass("moderator", "user", [
 	Permissions::EDIT_USER_PASSWORD => True,
 	Permissions::VIEW_HELLBANNED => True,
 	Permissions::VIEW_IMAGE_REPORT => True,
+    Permissions::APPROVE_IMAGE => True,
+    Permissions::EDIT_IMAGE_RELATIONSHIPS => true,
 ]);
 
 new UserClass("user", "base", [

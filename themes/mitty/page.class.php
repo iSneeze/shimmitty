@@ -51,8 +51,14 @@ class MittyPage extends Page
             HEADER(
                 DIV(
                     ["style" => "text-align: center;"],
-                    H1(A(["href" => "$data_href/$main_page"], 
-                    '<img src="/mittyLogo.svg" alt="Mittybooru" style="height: 200px;" />'))
+                    H1(
+                        A(["href" => "$data_href/$main_page"],
+                        IMG([
+                            "src" => "/themes/Mitty/mittyLogo.png",
+                            "alt" => "$site_name",
+                            "height" => "200"
+                        ])
+                    )
                     // Navigation links go here
                 ),
                 ...$head_block_html,

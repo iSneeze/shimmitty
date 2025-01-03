@@ -8,6 +8,7 @@ services:
     ports:
       - 80:80
       - 443:443
+    env_file: shimmity.env
     networks:
       - caddy
 
@@ -17,6 +18,11 @@ services:
       - ./data:/app/data
       - ./themes/mitty:/app/themes/Mitty
       - ./themes/mitty/counters:/app/ext/home/counters/LuckyCharms
+    networks:
+      - caddy
+
+  redis:
+    image: redis:alpine
     networks:
       - caddy
 

@@ -31,7 +31,7 @@ Make sure you have [git](https://git-scm.com/) and a relatively up-to-date versi
 ### Setup
 To clone this repository, execute `git clone https://github.com/iSneeze/shimmitty` in your terminal of choice
 
-First you probably want to edit the `caddy/Caddyfile`, change the domain to match yours, no "http://", just the domain name. E.g. `example.com` or if using a subdomain e.g. `megaawesomebooru.mittydot.com`
+First, copy shimmitty.env.example to shimmity.env and change the domain to match yours, for production use just the domain name. E.g. `example.com` or if using a subdomain e.g. `megaawesomebooru.mittydot.com`. For local testing, you can instead use "http://127.0.0.1".
 
 After that, change into the newly downloaded folder by using `cd shimmitty` and execute `docker-compose up` from your terminal of choice to start shimmie with caddy. in this mode you will get logs in the terminal and see if something is failing. (to exit, press Ctrl + C)
 
@@ -58,6 +58,11 @@ shimmie:
       - caddy
 
 ...
+```
+
+To configure Shimmie to use the included Redis cache, edit data/config/shimmie.conf.php and include the following line at the end:
+```php
+define('CACHE_DSN', 'redis://redis:63790');
 ```
 
 Happy testing!

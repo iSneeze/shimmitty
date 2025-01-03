@@ -9,3 +9,5 @@ data/*
 
 # but this one which contains db credentials
 data/config/shimmie.conf.php
+
+shimmity.env

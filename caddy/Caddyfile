@@ -1,5 +1,5 @@
 # Insert your domain here!
-your.domain.here {
+{$SHIMMITY_DOMAIN} {
     log {
         output file /data/log/access.log
     }

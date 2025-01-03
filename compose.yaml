@@ -21,5 +21,10 @@ services:
     networks:
       - caddy
 
+  redis:
+    image: redis:alpine
+    networks:
+      - caddy
+
 networks:
   caddy:

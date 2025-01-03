@@ -60,9 +60,10 @@ shimmie:
 ...
 ```
 
-To configure Shimmie to use the included Memcached cache, edit data/config/shimmie.conf.php and include the following line at the end:
+Our modifications to Shimmie's default config are stored in data/config/custom.conf.php and automatically mounted into the Docker container.
+To ensure they are actually loaded, add the following line to data/config/shimmie.conf.php
 ```php
-define('CACHE_DSN', 'memcache://memcached:11211');
+@include_once "data/config/custom.conf.php";
 ```
 
 Happy testing!

@@ -18,12 +18,14 @@ The goal of this repo is to make it as easy as possible to setup.
 - [x] Put the booru behind a webserver (Caddy) so its reachable from a domain
 - [x] Add Redis for caching, increasing performance
 - [x] Choose a server host to deploy the booru to
-- [ ] Test the finished config on the server host
-- [ ] Write a set of instructions for Mitty to be able set up the booru by herself (Needs a domain, a server host, and once you have access to the server, the required steps to perform so it's running the booru)
+- [x] Test the finished config on the server host
+- [x] Write a set of instructions for Mitty to be able set up the booru by herself (Needs a domain, a server host, and once you have access to the server, the required steps to perform so it's running the booru)
 
 ## Getting Started
 
 ### Prerequisites
+
+Check out the [Domain](/docs/domain.md) and [Hosting](/docs/Hosting.md) docs to prepare!
 
 Make sure you have [git](https://git-scm.com/) and a relatively up-to-date version of [Docker](https://www.docker.com/products/docker-desktop/) installed (needs [docker-compose](https://docs.docker.com/compose/install/))
 
@@ -78,6 +80,6 @@ Happy testing!
 - Matze
 - MiiMoo
 
-- shish2k for creating shimmie: https://github.com/shish/shimmie2
+- shish for creating shimmie: https://github.com/shish/shimmie2
 
 👏👏👏👏👏

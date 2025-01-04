@@ -70,8 +70,8 @@ class MittyPage extends Page
         return BODY(
             $this->body_attrs(),
             HEADER(
-                DIV(
-                    ["style" => "text-align: center;"],
+                DIV(["class" => "header-left",
+                     "style" => "text-align: center;"],
                     H1(
                         A(["href" => "$data_href/$front_page"],
                             IMG(["src" => "/themes/Mitty/mittyLogo.png",

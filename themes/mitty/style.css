@@ -30,26 +30,28 @@ BODY {
     flex-direction: column;
 }
 HEADER {
-	display: flex;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-	border-bottom: 1px solid var(--border-color);
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 8px;
-	background: var(--background-color);
-	text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    background: var(--background-color);
+    text-align: center;
 }
 
 HEADER > DIV {
-	display: flex;
-	flex-direction: row;
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
 }
 
 .header-left {
-	flex-shrink: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .header-right {
@@ -62,7 +64,7 @@ HEADER H1 {
 
 HEADER SMALL {
     width: 250px;
-	margin-bottom: auto;
+    margin-bottom: auto;
 }
 
 HEADER DIV SMALL SECTION {
@@ -70,7 +72,7 @@ HEADER DIV SMALL SECTION {
 }
 
 HEADER > DIV > nav {
-	margin-top: auto;
+    /*margin-top: auto;*/
 }
 HEADER NAV A {
     display: inline-block;
@@ -78,33 +80,32 @@ HEADER NAV A {
 }
 
 HEADER H1 IMG {
-	width: 600px;
-	max-width: 100%;
-	height: auto;
-	/*max-height: ???*/
-	/*object-fit: contain;*/
-
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+    /*max-height: ???*/
+    /*object-fit: contain;*/
 }
 
 H1 {
-	font-size: 5rem;
-	margin: 0;
-	padding: 0;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
 }
 H3 {
-	text-align: center;
-	margin: 0;
+    text-align: center;
+    margin: 0;
 }
 THEAD {
-	font-weight: bold;
+    font-weight: bold;
 }
 TD {
-	vertical-align: top;
-	text-align: center;
+    vertical-align: top;
+    text-align: center;
 }
 CODE {
-	background: #DEDEDE;
-	font-size: 0.8rem;
+    background: #DEDEDE;
+    font-size: 0.8rem;
 }
 
 TABLE.zebra {border-spacing: 0; border: 1px solid var(--border-color); }
@@ -116,11 +117,11 @@ TABLE.zebra TR:nth-child(odd) {background: var(--background-color);}
 TABLE.zebra TR:nth-child(even) {background: var(--background-color-alt)}
 
 FOOTER {
-	padding: 8px;
-	font-size: 0.7rem;
-	text-align: center;
-	border-top: 1px solid var(--border-color);
-	background: var(--background-color);
+    padding: 8px;
+    font-size: 0.7rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-color);
 }
 
 A         {color: var(--link-color); text-decoration: none; font-weight: bold;}
@@ -129,13 +130,13 @@ A:visited {color: var(--link-color); text-decoration: none}
 A:active  {color: var(--link-color); text-decoration: underline;}
 
 BLOCKQUOTE {
-	border: 1px solid black;
-	padding: 8px;
-	background: #DDD;
+    border: 1px solid black;
+    padding: 8px;
+    background: #DDD;
 }
 
 UL {
-	text-align: left;
+    text-align: left;
 }
 
 SECTION>H3, SECTION>.blockbody, .comment, .setupblock {margin: 8px; padding: 8px; border: 1px solid var(--border-color);}
@@ -157,64 +158,64 @@ MAIN {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ASIDE {
-	/*width: 250px;*/
-	text-align: center;
-	margin-left: 16px;
+    /*width: 250px;*/
+    text-align: center;
+    margin-left: 16px;
 }
 ASIDE > SECTION {
-	width: 250px;
+    width: 250px;
 }
 
 ASIDE .blockbody {
-	font-size: 0.85rem;
-	text-align: center;
+    font-size: 0.85rem;
+    text-align: center;
 }
 ASIDE TABLE {
-	width: 150px;
+    width: 150px;
 }
 ASIDE TD {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 ASIDE INPUT {
-	width: 100%;
-	padding: 0;
+    width: 100%;
+    padding: 0;
 }
 ASIDE SELECT {
-	width: 100%;
-	padding: 0;
+    width: 100%;
+    padding: 0;
 }
 
 TABLE.tag_list {
-	width: 100%;
-	border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 TABLE.tag_list>THEAD {
-	display: none;
+    display: none;
 }
 TABLE.tag_list>TBODY>TR>TD {
-	display: inline;
-	padding: 0;
-	line-height: 1em;
+    display: inline;
+    padding: 0;
+    line-height: 1em;
 }
 TABLE.tag_list>TBODY>TR>TD:after {
-	content: " ";
+    content: " ";
 }
 
 .more:after {
-	content: " >>>";
+    content: " >>>";
 }
 
 .tag_count:before {
-	content: "(";
+    content: "(";
 }
 .tag_count:after {
-	content: ")";
+    content: ")";
 }
 
 #paginator .blockbody {
-	background: none;
-	border: none;
-	box-shadow: none;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -223,68 +224,61 @@ TABLE.tag_list>TBODY>TR>TD:after {
 
 ARTICLE {
     flex: 1;
-	margin-right: 16px;
-	text-align: center;
+    margin-right: 16px;
+    text-align: center;
 }
 ARTICLE TABLE {
-	width: 90%;
-	margin: auto;
+    width: 90%;
+    margin: auto;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                       mobile screens                           *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
- /* Links moved below title */
-@media screen and (width <= 1490px) {
-	HEADER > DIV:first-of-type {
-		flex-direction: column;
-		flex-wrap: nowrap;
-	}
-
-	HEADER NAV {
-		margin-top: unset;
-	}
-}
-
 /* Blocks jump above the title and links */
-@media screen and (width <= 950px) {
-	HEADER {
-		flex-direction: column-reverse;
-		flex-wrap: nowrap;
-	}
-	HEADER H1 {
-		text-align: center;
-	}
+@media screen and (width <= 1116px) {
+    HEADER {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+    }
+    HEADER H1 {
+        text-align: center;
+    }
     HEADER SMALL {
         flex-grow: 1
     }
     .header-right {
         flex: 1;
-		flex-wrap: wrap;
+        flex-wrap: wrap;
     }
+}
+
+/* Sidebar jumps above content */
+@media screen and (width <= 766px) { /*950?*/
     MAIN {
         flex-direction: column;
-		flex-wrap: nowrap;
+        flex-wrap: nowrap;
     }
-	ASIDE {
-		display: flex;
-		flex-direction: row;
-		/*flex-wrap: wrap;*/
-	}
+    ASIDE {
+        display: flex;
+        flex-direction: row;
+        /*flex-wrap: wrap;*/
+        margin-left: unset;
+    }
     ASIDE > SECTION {
         /*width: auto;*/
-    	flex-grow: 1;
-	}
-	ARTICLE {
-		margin: 0 16px;
-	}
-	#image-list .blockbody {
-		margin: 0;
-	}
-	.shm-image-list {
-		justify-content: center;
-	}
+        flex-grow: 1;
+    }
+    ARTICLE {
+        margin: 0 16px;
+    }
+    #image-list .blockbody {
+        margin: 0;
+    }
+    .shm-image-list {
+        justify-content: center;
+    }
 }
 
 
@@ -293,21 +287,21 @@ ARTICLE TABLE {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #short-wiki-description > .blockbody {
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 #short-wiki-description h2 {
-	margin: 0 0 0.4em;
+    margin: 0 0 0.4em;
 }
 
 #pagelist {
-	margin-top: 32px;
+    margin-top: 32px;
 }
 
 .thumb {
-	text-align: center;
+    text-align: center;
 }
 .thumb IMG {
-	border: 1px solid var(--border-color);
-	background: var(--background-color);
-	padding: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    padding: 8px;
 }

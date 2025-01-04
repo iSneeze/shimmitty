@@ -29,12 +29,11 @@ BODY {
     display: flex;
     flex-direction: column;
 }
-
 HEADER {
 	display: flex;
     flex-direction: row;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 	border-bottom: 1px solid var(--border-color);
 	margin-top: 0;
 	margin-bottom: 0;
@@ -46,7 +45,11 @@ HEADER {
 HEADER > DIV {
 	display: flex;
 	flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+}
+
+.header-left {
+	flex-shrink: 1;
 }
 
 .header-right {
@@ -59,28 +62,28 @@ HEADER H1 {
 
 HEADER SMALL {
     width: 250px;
+	margin-bottom: auto;
 }
 
 HEADER DIV SMALL SECTION {
     width: 100%;
-    /*margin-bottom: auto;*/
 }
 
-HEADER DIV SMALL .blockbody {
-    /*display: none;*/
+HEADER > DIV > nav {
+	margin-top: auto;
 }
-
 HEADER NAV A {
     display: inline-block;
     margin: 0 0.5em;
 }
 
-HEADER > DIV > * {
-    margin-top: auto;
-}
+HEADER H1 IMG {
+	width: 600px;
+	max-width: 100%;
+	height: auto;
+	/*max-height: ???*/
+	/*object-fit: contain;*/
 
-HEADER > SMALL {
-    width: 250px;
 }
 
 H1 {
@@ -154,10 +157,14 @@ MAIN {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ASIDE {
-	width: 250px;
+	/*width: 250px;*/
 	text-align: center;
 	margin-left: 16px;
 }
+ASIDE > SECTION {
+	width: 250px;
+}
+
 ASIDE .blockbody {
 	font-size: 0.85rem;
 	text-align: center;
@@ -228,8 +235,8 @@ ARTICLE TABLE {
 *                       mobile screens                           *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-/* Links moved below title */
-@media screen and (width <= 1490px/*1215px/*75.9375rem*/) {
+ /* Links moved below title */
+@media screen and (width <= 1490px) {
 	HEADER > DIV:first-of-type {
 		flex-direction: column;
 		flex-wrap: nowrap;
@@ -241,7 +248,7 @@ ARTICLE TABLE {
 }
 
 /* Blocks jump above the title and links */
-@media screen and (width <= 1130px) {
+@media screen and (width <= 950px) {
 	HEADER {
 		flex-direction: column-reverse;
 		flex-wrap: nowrap;
@@ -254,14 +261,21 @@ ARTICLE TABLE {
     }
     .header-right {
         flex: 1;
+		flex-wrap: wrap;
     }
     MAIN {
         flex-direction: column;
 		flex-wrap: nowrap;
     }
-    ASIDE {
-        width: auto;
-    }
+	ASIDE {
+		display: flex;
+		flex-direction: row;
+		/*flex-wrap: wrap;*/
+	}
+    ASIDE > SECTION {
+        /*width: auto;*/
+    	flex-grow: 1;
+	}
 	ARTICLE {
 		margin: 0 16px;
 	}

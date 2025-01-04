@@ -262,13 +262,12 @@ ARTICLE TABLE {
     }
     ASIDE {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         /*flex-wrap: wrap;*/
         margin-left: unset;
     }
     ASIDE > SECTION {
-        /*width: auto;*/
-        flex-grow: 1;
+        width: auto;
     }
     ARTICLE {
         margin: 0 16px;

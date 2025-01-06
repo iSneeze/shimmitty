@@ -15,57 +15,92 @@
 
     color: var(--text-color);
 }
-BODY {
-    margin: 0;
-    background: var(--background-image-color) url(bg.png);
-}
 
-BODY.layout-grid {
-	display: grid;
-	grid-template-columns: 250px auto;
-	grid-gap: 16px;
+HTML, BODY {
+    margin: 0;
 }
-BODY.layout-no-left NAV {
-	display: none;
+HTML {
+    height: 100%;
 }
-BODY.layout-no-left ARTICLE {
-	margin-left: 1rem;
+BODY {
+    min-height: 100%;
+    background: var(--background-image-color) url(bg.png);
+    display: flex;
+    flex-direction: column;
 }
 
 HEADER {
-	display: grid;
-	grid-template-columns: auto 250px 250px;
-	grid-column: 1 / 3;
-	grid-row: 1;
-	border-bottom: 1px solid var(--border-color);
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 8px;
-	background: var(--background-color);
-	text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    background: var(--background-color);
+    text-align: center;
 }
+
+HEADER > DIV {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.header-left {
+    flex-shrink: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+HEADER H1 {
+    text-align: left;
+}
+
+HEADER SMALL {
+    width: 250px;
+    margin-bottom: auto;
+}
+
+HEADER DIV SMALL SECTION {
+    width: 100%;
+}
+
+HEADER NAV A {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+HEADER H1 IMG {
+    width: 600px;
+    max-width: 100%;
+    height: auto;
+}
+
 H1 {
-	font-size: 5rem;
-	margin: 0;
-	padding: 0;
-}
-H1 A {
-	color: black;
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
 }
 H3 {
-	text-align: center;
-	margin: 0;
+    text-align: center;
+    margin: 0;
 }
 THEAD {
-	font-weight: bold;
+    font-weight: bold;
 }
 TD {
-	vertical-align: top;
-	text-align: center;
+    vertical-align: top;
+    text-align: center;
 }
 CODE {
-	background: #DEDEDE;
-	font-size: 0.8rem;
+    background: #DEDEDE;
+    font-size: 0.8rem;
 }
 
 TABLE.zebra {border-spacing: 0; border: 1px solid var(--border-color); }
@@ -77,14 +112,11 @@ TABLE.zebra TR:nth-child(odd) {background: var(--background-color);}
 TABLE.zebra TR:nth-child(even) {background: var(--background-color-alt)}
 
 FOOTER {
-	grid-column: 1 / 3;
-	grid-row: 3;
-	clear: both;
-	padding: 8px;
-	font-size: 0.7rem;
-	text-align: center;
-	border-top: 1px solid var(--border-color);
-	background: var(--background-color);
+    padding: 8px;
+    font-size: 0.7rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-color);
 }
 
 A         {color: var(--link-color); text-decoration: none; font-weight: bold;}
@@ -93,18 +125,95 @@ A:visited {color: var(--link-color); text-decoration: none}
 A:active  {color: var(--link-color); text-decoration: underline;}
 
 BLOCKQUOTE {
-	border: 1px solid black;
-	padding: 8px;
-	background: #DDD;
+    border: 1px solid black;
+    padding: 8px;
+    background: #DDD;
 }
 
 UL {
-	text-align: left;
+    text-align: left;
 }
 
 SECTION>H3, SECTION>.blockbody, .comment, .setupblock {margin: 8px; padding: 8px; border: 1px solid var(--border-color);}
 SECTION>.blockbody, .comment, .setupblock {background: var(--background-color);}
 SECTION>H3 {background: var(--background-color-alt)}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the main part of the page                          *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+MAIN {
+    flex: 1; /* Grow to push the footer to the bottom of the page */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Side scrolling for full-size images */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the side bar, and all its blocks                   *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+ASIDE {
+    /*width: 250px;*/
+    text-align: center;
+    margin-left: 16px;
+}
+ASIDE > SECTION {
+    width: 250px;
+}
+
+ASIDE .blockbody {
+    font-size: 0.85rem;
+    text-align: center;
+}
+ASIDE TABLE {
+    width: 150px;
+}
+ASIDE TD {
+    vertical-align: middle;
+}
+ASIDE INPUT {
+    width: 100%;
+    padding: 0;
+}
+ASIDE SELECT {
+    width: 100%;
+    padding: 0;
+}
+
+TABLE.tag_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+TABLE.tag_list>THEAD {
+    display: none;
+}
+TABLE.tag_list>TBODY>TR>TD {
+    display: inline;
+    padding: 0;
+    line-height: 1em;
+}
+TABLE.tag_list>TBODY>TR>TD:after {
+    content: " ";
+}
+
+.more:after {
+    content: " >>>";
+}
+
+.tag_count:before {
+    content: "(";
+}
+.tag_count:after {
+    content: ")";
+}
+
+#paginator .blockbody {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
 
 .comment .info {
     padding: 0.5rem;
@@ -113,123 +222,64 @@ SECTION>H3 {background: var(--background-color-alt)}
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*             the navigation bar, and all its blocks             *
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-NAV {
-	grid-column: 1;
-	grid-row: 2;
-	width: 250px;
-	text-align: center;
-	margin-left: 16px;
-}
-NAV .blockbody {
-	font-size: 0.85rem;
-	text-align: center;
-}
-NAV TABLE {
-	width: 150px;
-}
-NAV TD {
-	vertical-align: middle;
-}
-NAV INPUT {
-	width: 100%;
-	padding: 0;
-}
-NAV SELECT {
-	width: 100%;
-	padding: 0;
-}
-
-TABLE.tag_list {
-	width: 100%;
-	border-collapse: collapse;
-}
-TABLE.tag_list>THEAD {
-	display: none;
-}
-TABLE.tag_list>TBODY>TR>TD {
-	display: inline;
-	padding: 0;
-	line-height: 1em;
-}
-TABLE.tag_list>TBODY>TR>TD:after {
-	content: " ";
-}
-
-.more:after {
-	content: " >>>";
-}
-
-.tag_count:before {
-	content: "(";
-}
-.tag_count:after {
-	content: ")";
-}
-
-#paginator .blockbody {
-	background: none;
-	border: none;
-	box-shadow: none;
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-*                 the main part of each page                     *
+*                 the content part of each page                  *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ARTICLE {
-	grid-column: 2;
-	grid-row: 2;
-	margin-right: 16px;
-	text-align: center;
-	height: 1%;
+    flex: 1;
+    margin-right: 16px;
+    text-align: center;
 }
 ARTICLE TABLE {
-	width: 90%;
-	margin: auto;
+    width: 90%;
+    margin: auto;
 }
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                       mobile screens                           *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-@media screen and (width <= 800px) {
-	BODY.layout-grid {
-		grid-template-columns: auto;
-	}
-	HEADER {
-		display: revert;
-		grid-column: 1;
-		grid-row: 1;
-	}
-	HEADER SPAN {
-		display: inline-block;
-	}
-	ARTICLE {
-		grid-column: 1;
-		grid-row: 2;
-		margin: 0 16px;
-	}
-	NAV {
-		grid-column: 1;
-		grid-row: 3;
-		margin: auto;
-		width: auto;
-	}
-	FOOTER {
-		grid-column: 1;
-		grid-row: 4;
-	}
-	#image-list .blockbody {
-		margin: 0;
-	}
-	.shm-image-list {
-		justify-content: center;
-	}
+/* Blocks jump above the title and links */
+@media screen and (width <= 1116px) {
+    HEADER {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+    }
+    HEADER H1 {
+        text-align: center;
+    }
+    HEADER SMALL {
+        flex-grow: 1
+    }
+    .header-right {
+        flex: 1;
+        flex-wrap: wrap;
+    }
+}
+
+/* Sidebar jumps above content */
+@media screen and (width <= 766px) { /*950?*/
+    MAIN {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    ASIDE {
+        display: flex;
+        flex-direction: column;
+        margin-left: unset;
+    }
+    ASIDE > SECTION {
+        width: auto;
+    }
+    ARTICLE {
+        margin: 0 16px;
+    }
+    #image-list .blockbody {
+        margin: 0;
+    }
+    .shm-image-list {
+        justify-content: center;
+    }
 }
 
 
@@ -238,21 +288,21 @@ ARTICLE TABLE {
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 #short-wiki-description > .blockbody {
-	padding-bottom: 15px;
+    padding-bottom: 15px;
 }
 #short-wiki-description h2 {
-	margin: 0 0 0.4em;
+    margin: 0 0 0.4em;
 }
 
 #pagelist {
-	margin-top: 32px;
+    margin-top: 32px;
 }
 
 .thumb {
-	text-align: center;
+    text-align: center;
 }
 .thumb IMG {
-	border: 1px solid var(--border-color);
-	background: var(--background-color);
-	padding: 8px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    padding: 8px;
 }

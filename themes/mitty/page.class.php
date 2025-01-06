@@ -5,11 +5,31 @@ declare(strict_types=1);
 namespace Shimmie2;
 
 use MicroHTML\HTMLElement;
-
-use function MicroHTML\{BODY, A, TABLE, TR, TD, SMALL, rawHTML, emptyHTML, DIV, ARTICLE, FOOTER, HEADER, H1, NAV, IMG};
+use function MicroHTML\{A, ARTICLE, ASIDE, BODY, DIV, FOOTER, H1, HEADER, MAIN, NAV, rawHTML, SMALL, STYLE, TD, IMG};
 
 class MittyPage extends Page
 {
+
+    // (Stolen from home/main.php)
+    protected function getHomeLinks(): string {
+        global $config;
+
+        if (strlen($config->get_string('home_links', '')) > 0) {
+            $main_links = $config->get_string('home_links');
+        } else {
+            $main_links = '[url=site://post/list]Posts[/url][url=site://comment/list]Comments[/url][url=site://tags]Tags[/url]';
+            if (Extension::is_enabled(PoolsInfo::KEY)) {
+                $main_links .= '[url=site://pool/list]Pools[/url]';
+            }
+            if (Extension::is_enabled(WikiInfo::KEY)) {
+                $main_links .= '[url=site://wiki]Wiki[/url]';
+            }
+            $main_links .= '[url=site://ext_doc]Documentation[/url]';
+        }
+
+        return format_text($main_links);
+    }
+
     protected function body_html(): HTMLElement
     {
         global $config;
@@ -17,6 +37,7 @@ class MittyPage extends Page
         $site_name = $config->get_string(SetupConfig::TITLE);
         $data_href = get_base_href();
         $main_page = $config->get_string(SetupConfig::MAIN_PAGE);
+        $front_page = $config->get_string(SetupConfig::FRONT_PAGE);
 
         $left_block_html = [];
         $main_block_html = [];
@@ -49,25 +70,29 @@ class MittyPage extends Page
         return BODY(
             $this->body_attrs(),
             HEADER(
-                DIV(
-                    ["style" => "text-align: center;"],
+                DIV(["class" => "header-left",
+                     "style" => "text-align: center;"],
                     H1(
-                        A(["href" => "$data_href/$main_page"],
-                        IMG([
-                            "src" => "/themes/Mitty/mittyLogo.png",
-                            "alt" => "$site_name",
-                            "height" => "200"
-                        ]))
-                    // Navigation links go here
+                        A(["href" => "$data_href/$front_page"],
+                            IMG(["src" => "/themes/Mitty/mittyLogo.png",
+                                "alt" => "$site_name",
+                                "height" => "200"])
+                        )
                     ),
+                    NAV(rawHTML($this->getHomeLinks()))
                 ),
-                ...$head_block_html,
+                DIV(
+                    ["class" => "header-right"],
+                    ...$head_block_html
+                ),
                 ...$sub_block_html
             ),
-            NAV(...$left_block_html),
-            ARTICLE(
-                $flash_html,
-                ...$main_block_html
+            MAIN(
+                ASIDE(...$left_block_html),
+                ARTICLE(
+                    $flash_html,
+                    ...$main_block_html
+                )
             ),
             FOOTER($footer_html)
         );

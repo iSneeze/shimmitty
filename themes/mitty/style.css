@@ -138,6 +138,7 @@ SECTION>H3, SECTION>.blockbody, .comment, .setupblock {margin: 8px; padding: 8px
 SECTION>.blockbody, .comment, .setupblock {background: var(--background-color);}
 SECTION>H3 {background: var(--background-color-alt)}
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *             the main part of the page                          *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -212,6 +213,12 @@ TABLE.tag_list>TBODY>TR>TD:after {
     background: none;
     border: none;
     box-shadow: none;
+}
+
+.comment .info {
+    padding: 0.5rem;
+    background: var(--background-color-alt);
+    border: 1px solid var(--border-color);
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

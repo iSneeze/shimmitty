@@ -2,6 +2,7 @@ version: "3"
 services:
   caddy:
     image: caddy:latest
+    restart: unless-stopped
     volumes:
       - ./caddy/data:/data
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
@@ -14,6 +15,7 @@ services:
 
   shimmie:
     image: shish2k/shimmie2:latest
+    restart: unless-stopped
     volumes:
       - ./data:/app/data
       - ./themes/mitty:/app/themes/Mitty
@@ -23,6 +25,7 @@ services:
 
   memcached:
     image: memcached:alpine
+    restart: unless-stopped
     command:
       - --conn-limit=1024
       - --memory-limit=64

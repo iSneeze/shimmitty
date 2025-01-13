@@ -12,6 +12,7 @@ new UserClass("moderator", "user", [
 	Permissions::VIEW_IMAGE_REPORT => True,
     Permissions::APPROVE_IMAGE => True,
     Permissions::EDIT_IMAGE_RELATIONSHIPS => true,
+    Permissions::REPLACE_IMAGE => true,
 ]);
 
 new UserClass("user", "base", [

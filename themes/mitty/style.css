@@ -306,3 +306,14 @@ ARTICLE TABLE {
     background: var(--background-color);
     padding: 8px;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                          COUNTERS                              *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+counter-img {
+    image-rendering: pixelated;
+    height: 140;
+    margin: 0px 5px;
+}

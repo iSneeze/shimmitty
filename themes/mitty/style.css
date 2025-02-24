@@ -312,8 +312,8 @@ ARTICLE TABLE {
 *                          COUNTERS                              *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-counter-img {
-    image-rendering: pixelated;
-    height: 140;
-    margin: 0px 5px;
+.counter-img {
+    image-rendering: pixelated !important;
+    height: 140px !important;
+    margin: 0px 6px !important;
 }

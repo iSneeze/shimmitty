@@ -314,6 +314,6 @@ ARTICLE TABLE {
 
 .counter-img {
     image-rendering: pixelated !important;
-    height: 140px !important;
-    margin: 0px 6px !important;
+    height: 32px !important;
+    margin: 0px 1px !important;
 }

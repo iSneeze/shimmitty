@@ -77,9 +77,8 @@ HEADER NAV A {
 }
 
 HEADER H1 IMG {
-    width: 600px;
     max-width: 100%;
-    height: auto;
+    max-height: 200px;
 }
 
 H1 {

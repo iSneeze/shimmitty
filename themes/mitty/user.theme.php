@@ -11,17 +11,17 @@ class MittyUserPageTheme extends UserPageTheme
     /**
      * @param array<array{link: string, name: string}> $parts
      */
-    public function display_user_block(Page $page, User $user, array $parts): void
+    public function display_user_block(User $user, array $parts): void
     {
         $h_name = html_escape($user->name);
         $html = " | ";
         foreach ($parts as $part) {
             $html .= "<a href='{$part["link"]}'>{$part["name"]}</a> | ";
         }
-        $page->add_block(new Block("Logged in as $h_name", rawHTML($html), "head", 90));
+        Ctx::$page->add_block(new Block("Logged in as $h_name", rawHTML($html), "head", 90));
     }
 
-    public function display_login_block(Page $page): void
+    public function display_login_block(): void
     {
         global $config;
         $html = "
@@ -33,9 +33,9 @@ class MittyUserPageTheme extends UserPageTheme
 			</table>
 			</form>
 		";
-        if ($config->get_bool("login_signup_enabled")) {
+        if ($config->get("login_signup_enabled")) {
             $html .= "<small><a href='".make_link("user_admin/create")."'>Create Account</a></small>";
         }
-        $page->add_block(new Block("Login", rawHTML($html), "head", 90));
+        Ctx::$page->add_block(new Block("Login", rawHTML($html), "head", 90));
     }
 }

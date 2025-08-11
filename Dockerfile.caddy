@@ -1,0 +1,24 @@
+# Stage 1: Build Caddy with the geoip plugin
+FROM caddy:2-builder AS builder
+
+RUN xcaddy build \
+    --with github.com/shift72/caddy-geo-ip
+
+# Stage 2: Create the final production image
+FROM caddy:2
+
+# Install required tools for the entrypoint script
+RUN apk update && apk add --no-cache ca-certificates wget gzip
+
+# Copy the custom Caddy binary from the builder stage
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+
+# Copy and set permissions for our entrypoint script
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Set the entrypoint to our custom script
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+# Set the default command that the entrypoint will execute
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

@@ -1,7 +1,26 @@
-# Insert your domain here!
 {$SHIMMITTY_DOMAIN} {
     log {
         output file /data/log/access.log
     }
-    reverse_proxy shimmie:8000
+
+    route {
+        geo_ip {
+            db_path /geoip/dbip-country-lite.mmdb
+        }
+
+        @geoblock {
+            expression {geoip.country_code} in ['GB', 'AU']
+        }
+
+        handle @geoblock {
+            root * /usr/share/caddy
+            rewrite * /blocked.html
+
+            file_server {
+                status 451
+            }
+        }
+
+        reverse_proxy shimmie:8000
+    }
 }

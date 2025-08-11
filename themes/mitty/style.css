@@ -316,3 +316,37 @@ ARTICLE TABLE {
     height: 32px !important;
     margin: 0px 1px !important;
 }
+
+/* Styling for the Terms of Service Modal */
+#terms-modal {
+    background-color: whitesmoke !important;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: hidden;
+    padding: 1em;
+}
+
+/* Target the main text content span */
+#terms-modal .bbcode {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 1em 0;
+}
+
+/* Target the form containing the button */
+#terms-modal form {
+    flex-shrink: 0;
+    padding-top: 1em;
+}
+
+#terms-modal button.terms-modal-enter {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1.2em;
+    cursor: pointer;
+}

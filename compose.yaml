@@ -1,14 +1,20 @@
-version: "3"
 services:
   caddy:
-    image: caddy:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.caddy
     restart: unless-stopped
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     volumes:
       - ./caddy/data:/data
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./geoip:/geoip
+      - ./caddy/caddy_pages:/usr/share/caddy
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     env_file: shimmitty.env
     networks:
       - caddy
@@ -20,6 +26,8 @@ services:
       - ./data:/app/data
       - ./themes/mitty:/app/themes/Mitty
       - ./counters:/app/ext/home/counters/LuckyCharms
+      - ./shimmie-ext/ReportButton:/app/ext/ReportButton
+      - ./shimmie-ext/TermsOfService:/app/ext/TermsOfService
     networks:
       - caddy
 

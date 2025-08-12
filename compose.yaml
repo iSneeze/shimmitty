@@ -26,8 +26,6 @@ services:
       - ./data:/app/data
       - ./themes/mitty:/app/themes/Mitty
       - ./counters:/app/ext/home/counters/LuckyCharms
-      - ./shimmie-ext/ReportButton:/app/ext/ReportButton
-      - ./shimmie-ext/TermsOfService:/app/ext/TermsOfService
     networks:
       - caddy
 

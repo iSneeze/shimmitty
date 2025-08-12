@@ -40,7 +40,7 @@ new UserClass("user", "base", [
     ForumPermission::FORUM_CREATE => true,
     NotesPermission::CREATE => true,
     NotesPermission::EDIT => true,
-    NotesPermission::NOTES_REQUEST => true,
+    NotesPermission::REQUEST => true,
     PoolsPermission::CREATE => true,
     PoolsPermission::UPDATE => true,
 ]);

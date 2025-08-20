@@ -18,12 +18,15 @@ new UserClass("moderator", "user", [
     ApprovalPermission::APPROVE_IMAGE => true,
     RelationshipsPermission::EDIT_IMAGE_RELATIONSHIPS => true,
     ReplaceFilePermission::REPLACE_IMAGE => true,
+    PoolsPermission::CREATE => true,
+    PoolsPermission::UPDATE => true,
 ]);
 
 new UserClass("user", "base", [
     IndexPermission::BIG_SEARCH => true,
     ImagePermission::CREATE_IMAGE => true,
     CommentPermission::CREATE_COMMENT => true,
+    CommentPermission::SKIP_CAPTCHA => true,
     PostTagsPermission::EDIT_IMAGE_TAG => true,
     PostSourcePermission::EDIT_IMAGE_SOURCE => true,
     PostTitlesPermission::EDIT_IMAGE_TITLE => true,

@@ -20,7 +20,7 @@ services:
       - caddy
 
   shimmie:
-    image: shish2k/shimmie2:latest
+    image: shish2k/shimmie2@sha256:38f272ebba3c95f0fb2d918214f00d75c04ea847774e9f8bef181717c0645cc3
     restart: unless-stopped
     volumes:
       - ./data:/app/data

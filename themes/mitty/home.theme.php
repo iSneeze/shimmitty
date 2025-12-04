@@ -16,7 +16,7 @@ class MittyHomeTheme extends HomeTheme
         $page->add_auto_html_headers();
 
         $page->set_data(
-            new MimeType(MimeType::HTML . "; " . MimeType::CHARSET_UTF8),
+            new MimeType(MimeType::HTML ),
             (string)$page->html_html(
                 emptyHTML(
                     TITLE($sitename),

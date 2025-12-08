@@ -31,6 +31,7 @@ new UserClass("user", "base", [
     CommentPermission::SKIP_CAPTCHA => true,
     PostSourcePermission::EDIT_IMAGE_SOURCE => true,
     PostTitlesPermission::EDIT_IMAGE_TITLE => true,
+    PostTagsPermission::EDIT_IMAGE_TAG => true,
     ArtistsPermission::EDIT_IMAGE_ARTIST => true,
     ReportImagePermission::CREATE_IMAGE_REPORT => true,
     FavouritesPermission::EDIT_FAVOURITES => true,

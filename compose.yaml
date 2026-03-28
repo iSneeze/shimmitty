@@ -24,8 +24,9 @@ services:
     restart: unless-stopped
     volumes:
       - ./data:/app/data
-      - ./themes/mitty:/app/themes/Mitty
       - ./counters:/app/ext/home/counters/LuckyCharms
+      - ./themes/mitty:/app/themes/Mitty
+      - ./themes/bingo:/app/themes/Bingo
     networks:
       - caddy
 

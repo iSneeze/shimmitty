@@ -7,7 +7,7 @@ namespace Shimmie2;
 use MicroHTML\HTMLElement;
 use function MicroHTML\{BODY, DIV, emptyHTML, IMG, INPUT, META, rawHTML, TITLE};
 
-class MittyHomeTheme extends HomeTheme
+class BingoHomeTheme extends HomeTheme
 {
     public function display_page(string $sitename, HTMLElement $body): void
     {

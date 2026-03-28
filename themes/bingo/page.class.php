@@ -7,7 +7,7 @@ namespace Shimmie2;
 use MicroHTML\HTMLElement;
 use function MicroHTML\{A, ARTICLE, ASIDE, BODY, DIV, FOOTER, H1, HEADER, IMG, MAIN, NAV, rawHTML, SMALL, TD, joinHTML};
 
-class MittyPage extends Page
+class BingoPage extends Page
 {
     protected function buildNavLinks(): HTMLElement
     {

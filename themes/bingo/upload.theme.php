@@ -6,7 +6,7 @@ namespace Shimmie2;
 
 use function MicroHTML\rawHTML;
 
-class MittyUploadTheme extends UploadTheme
+class BingoUploadTheme extends UploadTheme
 {
     public function display_block(): void
     {

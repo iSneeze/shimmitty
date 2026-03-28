@@ -1,0 +1,396 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                  things common to all pages                    *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+:root {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    --border-color: #fb40e2;
+    --background-color: #ff9df2;
+    --background-color-alt: #ff5fea;
+    --background-image-color: #ffb0f5;
+    --link-color: #4f00ff;
+    --text-color: #000000;
+
+    color: var(--text-color);
+}
+
+HTML,
+BODY {
+    margin: 0;
+}
+HTML {
+    height: 100%;
+}
+BODY {
+    min-height: 100%;
+    background: var(--background-image-color) url(bg.png);
+    display: flex;
+    flex-direction: column;
+}
+
+HEADER {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    background: var(--background-color);
+    text-align: center;
+}
+
+HEADER > DIV {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.header-left {
+    flex-shrink: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+HEADER H1 {
+    text-align: left;
+}
+
+HEADER SMALL {
+    width: 250px;
+    margin-bottom: auto;
+}
+
+HEADER DIV SMALL SECTION {
+    width: 100%;
+}
+
+HEADER NAV A {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+HEADER H1 IMG {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+H1 {
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
+}
+H3 {
+    text-align: center;
+    margin: 0;
+}
+THEAD {
+    font-weight: bold;
+}
+TD {
+    vertical-align: top;
+    text-align: center;
+}
+CODE {
+    background: #dedede;
+    font-size: 0.8rem;
+}
+
+TABLE.zebra {
+    border-spacing: 0;
+    border: 1px solid var(--border-color);
+}
+TABLE.zebra TD,
+TABLE.zebra TH {
+    vertical-align: middle;
+    padding: 4px;
+}
+TABLE.zebra THEAD TD,
+TABLE.zebra THEAD TH {
+    border-bottom: 2px solid var(--border-color);
+}
+TABLE.zebra TFOOT TD,
+TABLE.zebra TFOOT TH {
+    border-top: 2px solid var(--border-color);
+}
+TABLE.zebra TD {
+    border-top: 1px solid var(--border-color);
+}
+TABLE.zebra TR:nth-child(odd) {
+    background: var(--background-color);
+}
+TABLE.zebra TR:nth-child(even) {
+    background: var(--background-color-alt);
+}
+
+FOOTER {
+    padding: 8px;
+    font-size: 0.7rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-color);
+}
+
+A {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+A:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+A:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+A:active {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+BLOCKQUOTE {
+    border: 1px solid black;
+    padding: 8px;
+    background: #ddd;
+}
+
+UL {
+    text-align: left;
+}
+
+SECTION > H3,
+SECTION > .blockbody,
+.comment,
+.setupblock {
+    margin: 8px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+}
+SECTION > .blockbody,
+.comment,
+.setupblock {
+    background: var(--background-color);
+}
+SECTION > H3 {
+    background: var(--background-color-alt);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the main part of the page                          *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+MAIN {
+    flex: 1; /* Grow to push the footer to the bottom of the page */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Side scrolling for full-size images */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the side bar, and all its blocks                   *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+ASIDE {
+    /*width: 250px;*/
+    text-align: center;
+    margin-left: 16px;
+}
+ASIDE > SECTION {
+    width: 250px;
+}
+
+ASIDE .blockbody {
+    font-size: 0.85rem;
+    text-align: center;
+}
+ASIDE TABLE {
+    width: 150px;
+}
+ASIDE TD {
+    vertical-align: middle;
+}
+ASIDE INPUT {
+    width: 100%;
+    padding: 0;
+}
+ASIDE SELECT {
+    width: 100%;
+    padding: 0;
+}
+
+TABLE.tag_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+TABLE.tag_list > THEAD {
+    display: none;
+}
+TABLE.tag_list > TBODY > TR > TD {
+    display: inline;
+    padding: 0;
+    line-height: 1em;
+}
+TABLE.tag_list > TBODY > TR > TD:after {
+    content: " ";
+}
+
+.more:after {
+    content: " >>>";
+}
+
+.tag_count:before {
+    content: "(";
+}
+.tag_count:after {
+    content: ")";
+}
+
+#paginator .blockbody {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.comment .info {
+    padding: 0.5rem;
+    background: var(--background-color-alt);
+    border: 1px solid var(--border-color);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                 the content part of each page                  *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+ARTICLE {
+    flex: 1;
+    margin-right: 16px;
+    text-align: center;
+}
+ARTICLE TABLE {
+    width: 90%;
+    margin: auto;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                       mobile screens                           *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Blocks jump above the title and links */
+@media screen and (width <= 1116px) {
+    HEADER {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+    }
+    HEADER H1 {
+        text-align: center;
+    }
+    HEADER SMALL {
+        flex-grow: 1;
+    }
+    .header-right {
+        flex: 1;
+        flex-wrap: wrap;
+    }
+}
+
+/* Sidebar jumps above content */
+@media screen and (width <= 766px) {
+    /*950?*/
+    MAIN {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    ASIDE {
+        display: flex;
+        flex-direction: column;
+        margin-left: unset;
+    }
+    ASIDE > SECTION {
+        width: auto;
+    }
+    ARTICLE {
+        margin: 0 16px;
+    }
+    #image-list .blockbody {
+        margin: 0;
+    }
+    .shm-image-list {
+        justify-content: center;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                     specific page types                        *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#short-wiki-description > .blockbody {
+    padding-bottom: 15px;
+}
+#short-wiki-description h2 {
+    margin: 0 0 0.4em;
+}
+
+#pagelist {
+    margin-top: 32px;
+}
+
+.thumb {
+    text-align: center;
+}
+.thumb IMG {
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    padding: 8px;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                          COUNTERS                              *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.counter-img {
+    image-rendering: pixelated !important;
+    height: 32px !important;
+    margin: 0px 1px !important;
+    filter: hue-rotate(75deg);
+}
+
+/* Styling for the Terms of Service Modal */
+#terms-modal {
+    background-color: whitesmoke !important;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: hidden;
+    padding: 1em;
+}
+
+/* Target the main text content span */
+#terms-modal .bbcode {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 1em 0;
+}
+
+/* Target the form containing the button */
+#terms-modal form {
+    flex-shrink: 0;
+    padding-top: 1em;
+}
+
+#terms-modal button.terms-modal-enter {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1.2em;
+    cursor: pointer;
+}

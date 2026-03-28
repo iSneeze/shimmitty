@@ -13,7 +13,7 @@ class MittyUserPageTheme extends UserPageTheme
      */
     public function display_user_block(User $user, array $parts): void
     {
-        $h_name = html_escape($user->name);
+        $h_name = htmlspecialchars($user->name);
         $html = " | ";
         foreach ($parts as $part) {
             $html .= "<a href='{$part["link"]}'>{$part["name"]}</a> | ";

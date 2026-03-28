@@ -11,7 +11,6 @@ new UserClass("anonymous", "base", [
 new UserClass("moderator", "user", [
 	ImagePermission::DELETE_IMAGE => true,
 	CommentPermission::DELETE_COMMENT => true,
-	CommentPermission::BYPASS_COMMENT_CHECKS => true,
 	IPBanPermission::BAN_IP => true,
 	UserAccountsPermission::EDIT_USER_PASSWORD => true,
     RatingsPermission::EDIT_IMAGE_RATING => true,

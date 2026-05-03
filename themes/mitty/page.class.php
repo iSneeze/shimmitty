@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Shimmie2;
 
 use MicroHTML\HTMLElement;
-use function MicroHTML\{A, ARTICLE, ASIDE, BODY, DIV, FOOTER, H1, HEADER, IMG, MAIN, NAV, rawHTML, SMALL, TD, joinHTML};
+use function MicroHTML\{A, ARTICLE, ASIDE, BODY, DIV, FOOTER, H1, HEADER, IMG, MAIN, NAV, SMALL, TD, joinHTML};
 
 class MittyPage extends Page
 {
@@ -21,12 +21,10 @@ class MittyPage extends Page
 
     protected function body_html(): HTMLElement
     {
-        global $config;
-
-        $site_name = $config->get(SetupConfig::TITLE);
+        $site_name = Ctx::$config->get(SetupConfig::TITLE);
         $data_href = (string)Url::base();
-        $main_page = $config->get(SetupConfig::MAIN_PAGE);
-        $front_page = $config->get(SetupConfig::FRONT_PAGE);
+        $main_page = Ctx::$config->get(SetupConfig::MAIN_PAGE);
+        $front_page = Ctx::$config->get(SetupConfig::FRONT_PAGE);
 
         $left_block_html = [];
         $main_block_html = [];

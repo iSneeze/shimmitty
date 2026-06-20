@@ -22,6 +22,21 @@
     text-align: right;
 }
 
+.drop-hint {
+    border: 1px dashed var(--border-color);
+    padding: 6px;
+    text-align: center;
+    background: var(--background-color-alt);
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+}
+
+.drop-hint:hover {
+    background: #3a5a9a;
+    border-color: var(--link-color);
+}
+
 HTML, BODY {
     margin: 0;
 }

@@ -6,7 +6,7 @@ namespace Shimmie2;
 
 use MicroHTML\HTMLElement;
 
-use function MicroHTML\{emptyHTML, rawHTML, A, BR, DIV, INPUT, SMALL, NOSCRIPT};
+use function MicroHTML\{emptyHTML, rawHTML, A, BR, DIV, HR, INPUT, OPTION, SELECT, SMALL, NOSCRIPT};
 
 class MittyUploadTheme extends UploadTheme
 {
@@ -36,7 +36,16 @@ class MittyUploadTheme extends UploadTheme
         $form->appendChild(
             emptyHTML(
                 INPUT(["id" => "data[]", "name" => "data[]", "size" => "16", "type" => "file", "accept" => $accept, "multiple" => true]),
-                INPUT(["name" => "tags", "type" => "text", "placeholder" => "tagme", "class" => "autocomplete_tags", "required" => true]),
+                INPUT(["name" => "tags", "type" => "text", "placeholder" => "tagme", "class" => "autocomplete_tags"]),
+
+                INPUT(["name" => "source", "type" => "text", "placeholder" => "Source URL"]),
+                SELECT(["name" => "rating"],
+                    OPTION(["value" => "?", "selected" => true], "(Unrated)"),
+                    OPTION(["value" => "s"], "Safe"),
+                    OPTION(["value" => "q"], "Questionable"),
+                    OPTION(["value" => "e"], "Explicit"),
+                ),
+
                 Captcha::get_html(UploadPermission::SKIP_UPLOAD_CAPTCHA),
                 INPUT(["type" => "submit", "value" => "Post"]),
             )
@@ -52,7 +61,9 @@ class MittyUploadTheme extends UploadTheme
                 $max_total_size > 0 ? "Total limit $max_total_kb" : null,
                 ")",
             ),
-            NOSCRIPT(BR(), A(["href" => make_link("upload")], "Larger Form"))
+            HR(),
+            A(["href" => make_link("upload"), "class" => "upload-more-link"], "Upload multiple files »"),
+
         );
     }
 }

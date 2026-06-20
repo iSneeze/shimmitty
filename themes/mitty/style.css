@@ -23,6 +23,7 @@
 }
 
 .drop-hint {
+    display: block;
     border: 1px dashed var(--border-color);
     padding: 6px;
     text-align: center;

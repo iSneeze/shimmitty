@@ -6,7 +6,7 @@ namespace Shimmie2;
 
 use MicroHTML\HTMLElement;
 
-use function MicroHTML\{emptyHTML, rawHTML, A, BR, DIV, HR, INPUT, OPTION, P, SELECT, SMALL, SPAN, TEMPLATE};
+use function MicroHTML\{emptyHTML, rawHTML, A, BR, DIV, HR, INPUT, LABEL, OPTION, SELECT, SMALL, SPAN};
 
 class MittyUploadTheme extends UploadTheme
 {
@@ -37,14 +37,13 @@ class MittyUploadTheme extends UploadTheme
             emptyHTML(
                 INPUT(["id" => "data[]", "name" => "data[]", "size" => "16", "type" => "file", "accept" => $accept, "multiple" => true]),
                 rawHTML('<template id="dropHintTemplate">' .
-                    DIV(["class" => "drop-hint"],
+                    LABEL(["for" => "data[]", "class" => "drop-hint"],
                         SPAN(["id" => "dropText"],"Drop file(s) anywhere here or "),
                         A(["id" => "browseLink"], "browse"),
                     ) .
                 '</template>'),
 
                 INPUT(["name" => "tags", "type" => "text", "placeholder" => "tagme", "class" => "autocomplete_tags"]),
-
                 INPUT(["name" => "source", "type" => "text", "placeholder" => "Source URL"]),
                 SELECT(["name" => "rating"],
                     OPTION(["value" => "?", "selected" => true], "(Unrated)"),

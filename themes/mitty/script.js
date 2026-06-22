@@ -5,8 +5,8 @@ const fileInput = box.querySelector('input[type="file"]');
 const dropHintTemplate = box.querySelector('#dropHintTemplate');
 
 const dropHint = dropHintTemplate.content.cloneNode(true).firstElementChild;
-const dropText = dropHint.querySelector('#dropText');
-const browseLink = dropHint.querySelector('#browseLink');
+const dropText = dropHint.querySelector('.drop-text');
+const browseLink = dropHint.querySelector('.browse-link');
 
 fileInput.hidden = true;
 fileInput.after(dropHint);
@@ -70,7 +70,9 @@ box.addEventListener('drop', e => {
     e.preventDefault();
 
     fileInput.files = e.dataTransfer.files;
-    dropText.textContent = fileInput.files.length > 1 ? `${fileInput.files.length} files selected - ` : `${fileInput.files[0].name}  - `;
+    const newText = fileInput.files.length > 1 ? `${fileInput.files.length} files selected` : `${fileInput.files[0].name}`;
+    dropText.textContent = `${newText} - `;
+    dropText.title = newText;
     browseLink.textContent = 'change';
     dragEnd();
 });

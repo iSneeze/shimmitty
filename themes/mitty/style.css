@@ -27,10 +27,11 @@
 }
 
 .drop-hint {
-    display: block;
+    display: flex;
+    gap: 0.25em;
     border: 1px dashed var(--border-color);
     padding: 6px;
-    text-align: center;
+    justify-content: center;
     background: var(--background-color-alt);
     margin-bottom: 4px;
     cursor: pointer;
@@ -40,6 +41,12 @@
         background: #3a5a9a;
         border-color: var(--link-color);
     }
+}
+
+.drop-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
 }
 
 .drag-valid, .drag-invalid {

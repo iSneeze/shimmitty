@@ -38,8 +38,8 @@ class MittyUploadTheme extends UploadTheme
                 INPUT(["id" => "data[]", "name" => "data[]", "size" => "16", "type" => "file", "accept" => $accept, "multiple" => true]),
                 rawHTML('<template id="dropHintTemplate">' .
                     LABEL(["for" => "data[]", "class" => "drop-hint"],
-                        SPAN(["id" => "dropText"],"Drop file(s) anywhere here or "),
-                        A(["id" => "browseLink"], "browse"),
+                        SPAN(["class" => "drop-text"],"Drop file(s) anywhere here or "),
+                        A(["class" => "browse-link"], "browse"),
                     ) .
                 '</template>'),
 

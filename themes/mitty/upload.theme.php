@@ -67,7 +67,6 @@ class MittyUploadTheme extends UploadTheme
                 $max_total_size > 0 ? "Total limit $max_total_kb" : null,
                 ")",
             ),
-            HR(),
             A(["href" => make_link("upload"), "class" => "upload-more-link"], "Upload multiple files »"),
 
         );

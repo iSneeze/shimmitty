@@ -66,15 +66,20 @@ box.addEventListener('dragover', e => {
 
 });
 
-box.addEventListener('drop', e => {
-    e.preventDefault();
-
-    fileInput.files = e.dataTransfer.files;
+function updateText(e) {
     const newText = fileInput.files.length > 1 ? `${fileInput.files.length} files selected` : `${fileInput.files[0].name}`;
     dropText.textContent = `${newText} - `;
     dropText.title = newText;
     browseLink.textContent = 'change';
+}
+box.addEventListener('drop', e => {
+    e.preventDefault();
+
+    fileInput.files = e.dataTransfer.files;
+    updateText();
     dragEnd();
 });
 
 box.addEventListener('dragleave', dragHoverEnd);
+
+fileInput.addEventListener('change', updateText);

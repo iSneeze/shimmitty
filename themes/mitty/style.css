@@ -20,6 +20,10 @@
     position: relative;
 }
 
+.autocomplete_completions {
+    position: fixed;
+}
+
 .upload-more-link {
     font-size: 11px;
     display: block;

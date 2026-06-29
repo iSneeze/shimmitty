@@ -8,7 +8,7 @@ const dropHint = dropHintTemplate.content.cloneNode(true).firstElementChild;
 const dropText = dropHint.querySelector('.drop-text');
 const browseLink = dropHint.querySelector('.browse-link');
 
-fileInput.hidden = true;
+fileInput.classList.add('visually-hidden');
 fileInput.after(dropHint);
 
 function hasFiles(e) {

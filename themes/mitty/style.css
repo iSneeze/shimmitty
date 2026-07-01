@@ -27,12 +27,15 @@
     border: 0;
 }
 
-.mini_upload {
+.mini_upload:is(.drag-valid, .drag-invalid){
+    /* For positioning of drag overlay. Only apply on drag
+     to avoid messing up tag autocomplete positioning */
     position: relative;
-}
 
-.autocomplete_completions {
-    position: fixed;
+    & .autocomplete_completions {
+        /* Since it would be offscreen anyways*/
+        display: none;
+    }
 }
 
 .upload-more-link {

@@ -16,6 +16,8 @@
     color: var(--text-color);
 }
 
+/* Hides element while letting you interact with it using the keyboard.
+Used for the upload file input */
 .visually-hidden {
     position: absolute;
     width: 1px; height: 1px;
@@ -25,95 +27,6 @@
     clip-path: inset(50%);
     white-space: nowrap;
     border: 0;
-}
-
-.mini_upload:is(.drag-valid, .drag-invalid){
-    /* For positioning of drag overlay. Only apply on drag
-     to avoid messing up tag autocomplete positioning */
-    position: relative;
-
-    & .autocomplete_completions {
-        /* Since it would be offscreen anyways*/
-        display: none;
-    }
-}
-
-.upload-more-link {
-    font-size: 11px;
-    display: block;
-    text-align: right;
-}
-
-.drop-hint {
-    display: flex;
-    gap: 0.25em;
-    border: 1px dashed var(--border-color);
-    padding: 6px;
-    justify-content: center;
-    background: var(--background-color-alt);
-    margin-bottom: 4px;
-    cursor: pointer;
-    transition: background .15s, border-color .15s;
-
-    &:hover {
-        background: #3a5a9a;
-        border-color: var(--link-color);
-    }
-}
-
-#data\[\]:focus + .drop-hint {
-    outline: 1px solid  var(--link-color);
-    outline-offset: 1px;
-}
-
-.drop-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-wrap: nowrap;
-}
-
-.drag-valid, .drag-invalid {
-    &::after {
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        background: rgba(30, 50, 90, 0.88);
-        border: 2px dashed var(--link-color);
-        color: var(--link-color);
-
-        font-weight: bold;
-        font-size: 1.25rem;
-
-        align-content: center;
-    }
-}
-
-.drag-valid {
-    &::after {
-        content: "Drag here to upload";
-    }
-
-    &.drag-hover::after {
-        content: "Drop to upload";
-        border-color: lightgreen;
-        color: lightgreen;
-    }
-}
-
-.drag-invalid {
-    &::after {
-        content: "Cannot upload that";
-        border-color: red;
-        color: lightcoral;
-    }
-
-    &.drag-hover::after {
-        color: red;
-    }
 }
 
 HTML, BODY {
@@ -381,6 +294,98 @@ ARTICLE TABLE {
     }
 }
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                     upload block                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.mini_upload:is(.drag-valid, .drag-invalid){
+    /* For positioning of drag overlay. Only apply on drag
+     to avoid messing up tag autocomplete positioning */
+    position: relative;
+
+    & .autocomplete_completions {
+        /* Since it would be offscreen anyways*/
+        display: none;
+    }
+}
+
+.upload-more-link {
+    font-size: 11px;
+    display: block;
+    text-align: right;
+}
+
+.drop-hint {
+    display: flex;
+    gap: 0.25em;
+    border: 1px dashed var(--border-color);
+    padding: 6px;
+    justify-content: center;
+    background: var(--background-color-alt);
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+
+    &:hover {
+        background: #3a5a9a;
+        border-color: var(--link-color);
+    }
+}
+
+#data\[\]:focus + .drop-hint {
+    outline: 1px solid  var(--link-color);
+    outline-offset: 1px;
+}
+
+.drop-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.drag-valid, .drag-invalid {
+    &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(30, 50, 90, 0.88);
+        border: 2px dashed var(--link-color);
+        color: var(--link-color);
+
+        font-weight: bold;
+        font-size: 1.25rem;
+
+        align-content: center;
+    }
+}
+
+.drag-valid {
+    &::after {
+        content: "Drag here to upload";
+    }
+
+    &.drag-hover::after {
+        content: "Drop to upload";
+        border-color: lightgreen;
+        color: lightgreen;
+    }
+}
+
+.drag-invalid {
+    &::after {
+        content: "Cannot upload that";
+        border-color: red;
+        color: lightcoral;
+    }
+
+    &.drag-hover::after {
+        color: red;
+    }
+}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *                     specific page types                        *

@@ -10,6 +10,7 @@
     --background-color: #243B5E;
     --background-color-alt: #2E497C;
     --background-image-color: #394256;
+    --hover-color: #3a5a9a;
     --link-color: #DFD7C0;
     --text-color: #B0B0B0;
 
@@ -327,7 +328,7 @@ ARTICLE TABLE {
     transition: background .15s, border-color .15s;
 
     &:hover {
-        background: #3a5a9a;
+        background: var(--hover-color);
         border-color: var(--link-color);
     }
 }

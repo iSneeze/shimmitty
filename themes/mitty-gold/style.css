@@ -1,0 +1,469 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                  things common to all pages                    *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+:root {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    --border-color: #35496E;
+    --background-color: #243B5E;
+    --background-color-alt: #2E497C;
+    --background-image-color: #394256;
+    --hover-color: #3a5a9a;
+    --link-color: #DFD7C0;
+    --text-color: #B0B0B0;
+
+    color: var(--text-color);
+}
+
+/* Temp golden theme */
+:root {
+    --border-color: hsl(from #35496E calc(h - 180) s l);
+    --background-color: hsl(from #243B5E calc(h - 180) s l);
+    --background-color-alt: hsl(from #2E497C calc(h - 180) s l);
+    --background-image-color: hsl(from #394256 calc(h - 180) s l);
+    --hover-color: hsl(from #3A5A9A calc(h - 180) s l);
+    --link-color: hsl(from #DFD7C0 h calc(s * 1.2) calc(l * 1.07));
+    --text-color: hsl(from #B0B0B0 40 12% calc(l * 1.18));
+}
+
+/* Hides element while letting you interact with it using the keyboard.
+Used for the upload file input */
+.visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+HTML, BODY {
+    margin: 0;
+}
+HTML {
+    height: 100%;
+}
+BODY {
+    min-height: 100%;
+    background: var(--background-image-color) url(bg.png);
+    display: flex;
+    flex-direction: column;
+}
+
+HEADER {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    border-bottom: 1px solid var(--border-color);
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 8px;
+    background: var(--background-color);
+    text-align: center;
+}
+
+HEADER > DIV {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.header-left {
+    flex-shrink: 1;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.header-right {
+    justify-content: flex-end;
+}
+
+HEADER H1 {
+    text-align: left;
+}
+
+HEADER SMALL {
+    width: 250px;
+    margin-bottom: auto;
+}
+
+HEADER DIV SMALL SECTION {
+    width: 100%;
+}
+
+HEADER NAV A {
+    display: inline-block;
+    margin: 0 0.5em;
+}
+
+HEADER H1 IMG {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+H1 {
+    font-size: 5rem;
+    margin: 0;
+    padding: 0;
+}
+H3 {
+    text-align: center;
+    margin: 0;
+}
+THEAD {
+    font-weight: bold;
+}
+TD {
+    vertical-align: top;
+    text-align: center;
+}
+CODE {
+    background: #DEDEDE;
+    font-size: 0.8rem;
+}
+
+TABLE.zebra {border-spacing: 0; border: 1px solid var(--border-color); }
+TABLE.zebra TD, TABLE.zebra TH {vertical-align: middle; padding: 4px;}
+TABLE.zebra THEAD TD, TABLE.zebra THEAD TH {border-bottom: 2px solid var(--border-color);}
+TABLE.zebra TFOOT TD, TABLE.zebra TFOOT TH {border-top: 2px solid var(--border-color);}
+TABLE.zebra TD {border-top: 1px solid var(--border-color);}
+TABLE.zebra TR:nth-child(odd) {background: var(--background-color);}
+TABLE.zebra TR:nth-child(even) {background: var(--background-color-alt)}
+
+FOOTER {
+    padding: 8px;
+    font-size: 0.7rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: var(--background-color);
+}
+
+A         {color: var(--link-color); text-decoration: none; font-weight: bold;}
+A:hover   {color: var(--link-color); text-decoration: underline;}
+A:visited {color: var(--link-color); text-decoration: none}
+A:active  {color: var(--link-color); text-decoration: underline;}
+
+BLOCKQUOTE {
+    border: 1px solid black;
+    padding: 8px;
+    background: #DDD;
+}
+
+UL {
+    text-align: left;
+}
+
+SECTION>H3, SECTION>.blockbody, .comment, .setupblock {margin: 8px; padding: 8px; border: 1px solid var(--border-color);}
+SECTION>.blockbody, .comment, .setupblock {background: var(--background-color);}
+SECTION>H3 {background: var(--background-color-alt)}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the main part of the page                          *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+MAIN {
+    flex: 1; /* Grow to push the footer to the bottom of the page */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto; /* Side scrolling for full-size images */
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*             the side bar, and all its blocks                   *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+ASIDE {
+    /*width: 250px;*/
+    text-align: center;
+    margin-left: 16px;
+}
+ASIDE > SECTION {
+    width: 250px;
+}
+
+ASIDE .blockbody {
+    font-size: 0.85rem;
+    text-align: center;
+}
+ASIDE TABLE {
+    width: 150px;
+}
+ASIDE TD {
+    vertical-align: middle;
+}
+ASIDE INPUT {
+    width: 100%;
+    padding: 0;
+}
+ASIDE SELECT {
+    width: 100%;
+    padding: 0;
+}
+
+TABLE.tag_list {
+    width: 100%;
+    border-collapse: collapse;
+}
+TABLE.tag_list>THEAD {
+    display: none;
+}
+TABLE.tag_list>TBODY>TR>TD {
+    display: inline;
+    padding: 0;
+    line-height: 1em;
+}
+TABLE.tag_list>TBODY>TR>TD:after {
+    content: " ";
+}
+
+.more:after {
+    content: " >>>";
+}
+
+.tag_count:before {
+    content: "(";
+}
+.tag_count:after {
+    content: ")";
+}
+
+#paginator .blockbody {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.comment .info {
+    padding: 0.5rem;
+    background: var(--background-color-alt);
+    border: 1px solid var(--border-color);
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                 the content part of each page                  *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+ARTICLE {
+    flex: 1;
+    margin-right: 16px;
+    text-align: center;
+}
+ARTICLE TABLE {
+    width: 90%;
+    margin: auto;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                       mobile screens                           *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+/* Blocks jump above the title and links */
+@media screen and (width <= 1116px) {
+    HEADER {
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+    }
+    HEADER H1 {
+        text-align: center;
+    }
+    HEADER SMALL {
+        flex-grow: 1
+    }
+    .header-right {
+        flex: 1;
+        flex-wrap: wrap;
+    }
+}
+
+/* Sidebar jumps above content */
+@media screen and (width <= 766px) { /*950?*/
+    MAIN {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+    ASIDE {
+        display: flex;
+        flex-direction: column;
+        margin-left: unset;
+    }
+    ASIDE > SECTION {
+        width: auto;
+    }
+    ARTICLE {
+        margin: 0 16px;
+    }
+    #image-list .blockbody {
+        margin: 0;
+    }
+    .shm-image-list {
+        justify-content: center;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                     upload block                               *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.mini_upload:is(.drag-valid, .drag-invalid){
+    /* For positioning of drag overlay. Only apply on drag
+     to avoid messing up tag autocomplete positioning */
+    position: relative;
+
+    & .autocomplete_completions {
+        /* Since it would be offscreen anyways*/
+        display: none;
+    }
+}
+
+.upload-more-link {
+    font-size: 11px;
+    display: block;
+    text-align: right;
+}
+
+.drop-hint {
+    display: flex;
+    gap: 0.25em;
+    border: 1px dashed var(--border-color);
+    padding: 6px;
+    justify-content: center;
+    background: var(--background-color-alt);
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: background .15s, border-color .15s;
+
+    &:hover {
+        background: var(--hover-color);
+        border-color: var(--link-color);
+    }
+}
+
+#data\[\]:focus + .drop-hint {
+    outline: 1px solid  var(--link-color);
+    outline-offset: 1px;
+}
+
+.drop-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.drag-valid, .drag-invalid {
+    &::after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        background: rgba(30, 50, 90, 0.88);
+        border: 2px dashed var(--link-color);
+        color: var(--link-color);
+
+        font-weight: bold;
+        font-size: 1.25rem;
+
+        align-content: center;
+    }
+}
+
+.drag-valid {
+    &::after {
+        content: "Drag here to upload";
+    }
+
+    &.drag-hover::after {
+        content: "Drop to upload";
+        border-color: lightgreen;
+        color: lightgreen;
+    }
+}
+
+.drag-invalid {
+    &::after {
+        content: "Cannot upload that";
+        border-color: red;
+        color: lightcoral;
+    }
+
+    &.drag-hover::after {
+        color: red;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                     specific page types                        *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+#short-wiki-description > .blockbody {
+    padding-bottom: 15px;
+}
+#short-wiki-description h2 {
+    margin: 0 0 0.4em;
+}
+
+#pagelist {
+    margin-top: 32px;
+}
+
+.thumb {
+    text-align: center;
+}
+.thumb IMG {
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    padding: 8px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+*                          COUNTERS                              *
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.counter-img {
+    image-rendering: pixelated !important;
+    height: 32px !important;
+    margin: 0px 1px !important;
+}
+
+/* Styling for the Terms of Service Modal */
+#terms-modal {
+    background-color: whitesmoke !important;
+    display: flex;
+    flex-direction: column;
+    max-height: 50vh;
+    overflow: hidden;
+    padding: 1em;
+}
+
+/* Target the main text content span */
+#terms-modal .bbcode {
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+    padding: 1em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 1em 0;
+}
+
+/* Target the form containing the button */
+#terms-modal form {
+    flex-shrink: 0;
+    padding-top: 1em;
+}
+
+#terms-modal button.terms-modal-enter {
+    width: 100%;
+    padding: 0.75em;
+    font-size: 1.2em;
+    cursor: pointer;
+}

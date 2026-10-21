@@ -8,7 +8,7 @@ use MicroHTML\HTMLElement;
 
 use function MicroHTML\{emptyHTML, rawHTML, A, BR, DIV, HR, INPUT, LABEL, OPTION, SELECT, SMALL, SPAN};
 
-class MittyUploadTheme extends UploadTheme
+class MittyGoldUploadTheme extends UploadTheme
 {
     public function display_block(): void
     {

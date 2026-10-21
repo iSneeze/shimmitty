@@ -8,7 +8,7 @@ use function MicroHTML\{A, INPUT, SMALL, TABLE, TD, TR, joinHTML};
 
 use MicroHTML\HTMLElement;
 
-class MittyUserPageTheme extends UserPageTheme
+class MittyGoldUserPageTheme extends UserPageTheme
 {
     /**
      * @param array<array{name: string|HTMLElement, link: Url}> $parts

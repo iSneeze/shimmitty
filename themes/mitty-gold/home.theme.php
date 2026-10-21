@@ -7,7 +7,7 @@ namespace Shimmie2;
 use MicroHTML\HTMLElement;
 use function MicroHTML\{BODY, DIV, emptyHTML, IMG, INPUT, META, rawHTML, TITLE};
 
-class MittyHomeTheme extends HomeTheme
+class MittyGoldHomeTheme extends HomeTheme
 {
     public function display_page(string $sitename, HTMLElement $body): void
     {
@@ -66,7 +66,7 @@ class MittyHomeTheme extends HomeTheme
             $page->body_attrs(),
             rawHTML("
                 <div id='front-page'>
-                        <h1><a style='text-decoration: none;' href='".make_link()."'><img src='/themes/Mitty/mittyLogo.png' alt='$sitename' height='200'/></a></h1>
+                        <h1><a style='text-decoration: none;' href='".make_link()."'><img src='/themes/MittyGold/mittyLogo.png' alt='$sitename' height='200'/></a></h1>
                         $main_links_html
                         $search_html
                         $message_html

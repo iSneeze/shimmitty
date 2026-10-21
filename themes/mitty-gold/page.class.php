@@ -7,7 +7,7 @@ namespace Shimmie2;
 use MicroHTML\HTMLElement;
 use function MicroHTML\{A, ARTICLE, ASIDE, BODY, DIV, FOOTER, H1, HEADER, IMG, MAIN, NAV, SMALL, TD, joinHTML};
 
-class MittyPage extends Page
+class MittyGoldPage extends Page
 {
     protected function buildNavLinks(): HTMLElement
     {
@@ -61,7 +61,7 @@ class MittyPage extends Page
                      "style" => "text-align: center;"],
                     H1(
                         A(["href" => make_link($front_page)],
-                            IMG(["src" => "/themes/Mitty/mittyLogo.png",
+                            IMG(["src" => "/themes/MittyGold/mittyLogo.png",
                                 "alt" => "$site_name",
                                 "height" => "200"])
                         )

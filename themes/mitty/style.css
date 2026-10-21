@@ -17,6 +17,17 @@
     color: var(--text-color);
 }
 
+/* Temp golden theme */
+:root {
+    --border-color: hsl(from #35496E calc(h - 180) s l);
+    --background-color: hsl(from #243B5E calc(h - 180) s l);
+    --background-color-alt: hsl(from #2E497C calc(h - 180) s l);
+    --background-image-color: hsl(from #394256 calc(h - 180) s l);
+    --hover-color: hsl(from #3A5A9A calc(h - 180) s l);
+    --link-color: hsl(from #DFD7C0 h calc(s * 1.2) calc(l * 1.07));
+    --text-color: hsl(from #B0B0B0 40 12% calc(l * 1.18));
+}
+
 /* Hides element while letting you interact with it using the keyboard.
 Used for the upload file input */
 .visually-hidden {

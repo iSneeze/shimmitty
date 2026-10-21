@@ -26,6 +26,7 @@ services:
       - ./data:/app/data
       - ./counters:/app/ext/home/counters/LuckyCharms
       - ./themes/mitty:/app/themes/Mitty
+      - ./themes/mitty-gold:/app/themes/MittyGold
       - ./themes/bingo:/app/themes/Bingo
     networks:
       - caddy
